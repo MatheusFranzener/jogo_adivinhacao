@@ -29,8 +29,14 @@ app.get('/placar', (req, res) => {
     res.sendFile(__dirname + '/Components/placar.html');
 })
 
+app.get('/criar_placar', (req, res) => {
+    sql.query("select nome, pontos from jogo", (error, results, fields) => {
+        res.json(results)
+    })
+})
+
 app.listen('8080', (req, res) => {
-    console.log("servidor rodando 8080")
+    console.log("servidor rodando http://localhost:8080")
 });
 
 

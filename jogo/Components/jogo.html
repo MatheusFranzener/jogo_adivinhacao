@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,37 @@
     <link rel="stylesheet" href="../Css/jogo.css">
 </head>
 <body>
-    
+    <h1>Jogo da Adivinhação</h1>
+
+    <h3 id="nomeJogador"></h3>
+
+    <table>
+        <th>
+            Dificuldades
+        </th>
+        <tr>
+            <td><button id="btnInsano">1 - Insano</button></td>
+        </tr>
+        <tr>
+            <td><button id="btnDificil">2 - Difícil</button></td>
+        </tr>
+        <tr>
+            <td><button id="btnMedio">3 - Médio</button></td>
+        </tr>
+        <tr>
+            <td><button id="btnFacil">4 - Fácil</button></td>
+        </tr>
+        <tr>
+            <td><button id="btnNoob">5 - Noob</button></td>
+        </tr>
+    </table>
+
+    <form>
+        <input type="number" min="1" max="100" id="inpNumero">
+        <input type="submit" value="Adivinhar" id="btnAdiv">
+    </form>
+
+    <h3 id="dica"></h3>
 
     <script src="../Js/jogo.js"></script>
 </body>
