@@ -18,15 +18,15 @@ const sql = mysql.createConnection({
 sql.query("use adivinhacao");
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '../Components/home.hmtl');
+    res.sendFile(__dirname + '/Components/home.html');
 })
 
 app.get('/jogo', (req, res) => {
-    res.sendFile(__dirname + '../Components/jogo.hmtl');
+    res.sendFile(__dirname + '/Components/jogo.html');
 })
 
 app.get('/placar', (req, res) => {
-    res.sendFile(__dirname + '../Components/placar.hmtl');
+    res.sendFile(__dirname + '/Components/placar.html');
 })
 
 app.listen('8080', (req, res) => {
