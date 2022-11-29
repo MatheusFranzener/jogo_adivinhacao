@@ -7,14 +7,6 @@ body {
     height: 80vh;
 }
 
-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    height: 80px;
-}
-
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -22,7 +14,7 @@ table, th, td {
     padding: 5px 10px;
 }
 
-button {
+table > button {
     width: 100%;
 }
 

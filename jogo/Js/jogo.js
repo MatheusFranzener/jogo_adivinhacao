@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     document.getElementById('nomeJogador').innerText = localStorage.getItem('nome')
 })
 
-function travar(){
+function travar() {
     document.getElementById('btnInsano').setAttribute('disabled', 'true')
     document.getElementById('btnDificil').setAttribute('disabled', 'true')
     document.getElementById('btnMedio').setAttribute('disabled', 'true')
@@ -12,7 +12,7 @@ function travar(){
     document.getElementById('btnNoob').setAttribute('disabled', 'true')
 }
 
-function destravar(){
+function destravar() {
     document.getElementById('btnInsano').removeAttribute('disabled')
     document.getElementById('btnDificil').removeAttribute('disabled')
     document.getElementById('btnMedio').removeAttribute('disabled')
@@ -20,25 +20,41 @@ function destravar(){
     document.getElementById('btnNoob').removeAttribute('disabled')
 }
 
-function jogar(dif){
+function jogar(dif) {
     let tent = dif
 
-    numberRand = parseInt(Math.random()*99 + 1)
+    numberRand = parseInt(Math.random() * 99 + 1)
     console.log(numberRand)
-    
+
     document.getElementById('btnAdiv').addEventListener('click', () => {
-        if(tent > 0){
-            i--;
-            let valor = document.getElementById('inpNumero').value
-            let pontos = 1000/(dif+(dif-tent))
-            if(valor == numberRand){
-                alert(`Você acertou o número!\n${pontos} pontos`)
-            } else {
-                
+        tent--
+        console.log(tent)
+        if (tent >= 0) {
+            let valor = document.getElementById('inpNumero')
+            let result = document.getElementById('result')
+            let dica = document.getElementById('dica')
+            let pontos = parseInt(1000 / (dif + (dif - tent)))
+            if (valor.value == numberRand) {
+                result.innerText = `Você acertou o número!\n${pontos} pontos`
+                setTimeout(() => {
+                    dica.innerText = ""
+                    valor.value = ""
+                    result.innerText = ""
+                    destravar()
+                }, 3000)
+            } else if (valor.value != numberRand && tent == 0) {
+                result.innerText = "Você não acertou!\n0 Pontos"
+                setTimeout(() => {
+                    dica.innerText = ""
+                    valor.value = ""
+                    result.innerText = ""
+                    destravar()
+                }, 3000)
+            } else if (valor.value < numberRand) {
+                dica.innerText = "Dica: o número é maior"
+            } else if (valor.value > numberRand) {
+                dica.innerText = "Dica: o número é menor"
             }
-        } else {
-            alert("Você não acertou!\n0 Pontos")
-            destravar()
         }
     })
 }
