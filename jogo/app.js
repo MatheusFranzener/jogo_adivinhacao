@@ -30,7 +30,7 @@ app.get('/placar', (req, res) => {
 })
 
 app.get('/criar_placar', (req, res) => {
-    sql.query("select nome, pontos from jogo", (error, results, fields) => {
+    sql.query("select nome, pontos from jogo order by pontos desc", (error, results, fields) => {
         res.json(results)
     })
 })

@@ -25,8 +25,8 @@ var dados = (results) => {
         let tdPontos = document.createElement("td");
         
         tdPos.innerText = i;
-        tdNome.innerText = result.NOME;
-        tdPontos.innerText = result.PONTOS;
+        tdNome.innerText = result.nome;
+        tdPontos.innerText = result.pontos;
 
         tr.appendChild(tdPos);
         tr.appendChild(tdNome);

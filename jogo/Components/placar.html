@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,20 +9,27 @@
 
     <link rel="stylesheet" href="../Css/placar.css">
 </head>
+
 <body>
-    <h1>Placar</h1>
+    <div id="containerPlacar">
+        <button onclick="window.location.href = '/jogo'">Voltar</button>
+        <h1>Placar</h1>
 
-    <table>
-        <tr>
-            <th>Posição</th>
-            <th>Nome</th>
-            <th>Pontos</th>
-        </tr>
-        <tbody id="tbody">
+        <div id="containerTabela">
+            <table>
+                <tr>
+                    <th>Posição</th>
+                    <th>Nome</th>
+                    <th>Pontos</th>
+                </tr>
+                <tbody id="tbody">
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
     <script src="../Js/placar.js"></script>
 </body>
+
 </html>
