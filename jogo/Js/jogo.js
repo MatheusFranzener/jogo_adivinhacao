@@ -26,25 +26,25 @@ function destravar() {
 function jogar(dif) {
     pegarPontos()
     let tent = dif
+    let tentativas = document.getElementById('tentativas')
+    tentativas.innerText = "Tentativas: " + tent
 
     numberRand = parseInt(Math.random() * 99 + 1)
 
-    document.getElementById('btnAdiv').addEventListener('click', () => {
+    document.getElementById('btnAdiv').addEventListener('click', () => { 
         tent--
+        tentativas.innerText = "Tentativas: " + tent
         if (tent >= 0) {
             let valor = document.getElementById('inpNumero')
             let result = document.getElementById('result')
             let dica = document.getElementById('dica')
             pontos = parseInt(1000 / (dif + (dif - tent)))
-            pontosTotal += pontos 
             if (valor.value == numberRand) {
+                pontosTotal += pontos
                 result.innerText = `Você acertou o número!\n${pontos} pontos`
                 aumentarPontos(pontosTotal)
                 setTimeout(() => {
-                    dica.innerText = ""
-                    valor.value = ""
-                    result.innerText = ""
-                    destravar()
+                    window.location.href = "/jogo"
                 }, 3000)
             } else if (valor.value != numberRand && tent == 0) {
                 result.innerText = "Você não acertou!\n0 Pontos"
