@@ -35,6 +35,20 @@ app.get('/criar_placar', (req, res) => {
     })
 })
 
+app.post('/criar_pessoa', (req, res) => {
+    sql.query("insert into jogo values(?, ?, ?)", [, req.body.nomeLs, req.body.pontos])
+})
+
+app.put('/aumentar_pontos/:nome/:pontos', (req, res) => {
+    sql.query("update jogo set pontos = ? where nome = ?", [req.params.pontos, req.params.nome])
+})
+
+app.get('/pegar_pontos/:nome', (req, res) => {
+    sql.query("select pontos from jogo where nome = ?", [req.params.nome], (error, results, fields) => {
+        res.json(results);
+    })
+})
+
 app.listen('8080', (req, res) => {
     console.log("servidor rodando http://localhost:8080")
 });
